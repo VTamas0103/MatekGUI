@@ -1,9 +1,18 @@
 package matekfeladatokgui;
 
+import java.util.ArrayList;
+
 public class Felulet extends javax.swing.JFrame {
 
+    private void Osztas() {
+        tfMuvelet.setText("5/5");
+    }
+
+    ArrayList<String> lista = new ArrayList<>();
+    
     public Felulet() {
         initComponents();
+        Osztas();
     }
 
     @SuppressWarnings("unchecked")
@@ -43,11 +52,14 @@ public class Felulet extends javax.swing.JFrame {
 
         tfMuvelet.setText("25-1=");
 
-        tfEredmeny.setText("2564");
-
         jLabel1.setText("Eredmény");
 
         btKesz.setText("Kész");
+        btKesz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btKeszActionPerformed(evt);
+            }
+        });
 
         lbProbálkozások.setText("Probálkozások:");
 
@@ -58,6 +70,11 @@ public class Felulet extends javax.swing.JFrame {
         btKivonas.setText("Kivonások");
 
         btOsztasok.setText("Osztasok");
+        btOsztasok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btOsztasokActionPerformed(evt);
+            }
+        });
 
         btSzorzasok.setText("Szorzasok");
 
@@ -172,6 +189,20 @@ public class Felulet extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btOsztasokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOsztasokActionPerformed
+        lista.add("");
+    }//GEN-LAST:event_btOsztasokActionPerformed
+
+    private void btKeszActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btKeszActionPerformed
+        
+        if (tfEredmeny.getText().equals("1")) {
+            System.out.println("Jó a megoldás");
+        }else{
+            System.out.println("Rossz a megoldás");
+        }
+        
+    }//GEN-LAST:event_btKeszActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -179,6 +210,7 @@ public class Felulet extends javax.swing.JFrame {
             }
             
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -182,9 +182,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tfEredmeny">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="2564"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
@@ -195,6 +192,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="K&#xe9;sz"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btKeszActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lbProb&#xe1;lkoz&#xe1;sok">
           <Properties>
@@ -220,6 +220,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Osztasok"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btOsztasokActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btSzorzasok">
           <Properties>
