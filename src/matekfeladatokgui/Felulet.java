@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class Felulet extends javax.swing.JFrame {
 
     private void Osztas() {
-        tfMuvelet.setText("5/5");
+        tfMuvelet.setText("5/5=");
     }
 
     ArrayList<String> lista = new ArrayList<>();
     
     public Felulet() {
         initComponents();
-        Osztas();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -38,6 +38,7 @@ public class Felulet extends javax.swing.JFrame {
         lbKerdesek = new javax.swing.JLabel();
         tfKerdesek = new javax.swing.JTextField();
         btUjrakezd = new javax.swing.JToggleButton();
+        tfMegoldasKiir = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,7 +51,7 @@ public class Felulet extends javax.swing.JFrame {
 
         lbMuvelet.setText("Művelet");
 
-        tfMuvelet.setText("25-1=");
+        tfMuvelet.setEditable(false);
 
         jLabel1.setText("Eredmény");
 
@@ -63,6 +64,7 @@ public class Felulet extends javax.swing.JFrame {
 
         lbProbálkozások.setText("Probálkozások:");
 
+        tfProbalkozasok.setEditable(false);
         tfProbalkozasok.setText("3");
 
         btOsszead.setText("Összeadások");
@@ -80,13 +82,22 @@ public class Felulet extends javax.swing.JFrame {
 
         lbHibak.setText("Hibak:");
 
+        tfHibak.setEditable(false);
         tfHibak.setText("3");
 
         lbKerdesek.setText("Kérdések:");
 
+        tfKerdesek.setEditable(false);
         tfKerdesek.setText("3");
 
         btUjrakezd.setText("Újrakezd");
+
+        tfMegoldasKiir.setEditable(false);
+        tfMegoldasKiir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfMegoldasKiirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -100,13 +111,14 @@ public class Felulet extends javax.swing.JFrame {
                             .addComponent(jScrollPane1)
                             .addComponent(btOsszead, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btKivonas)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btOsztasok)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btSzorzasok))
+                                .addComponent(btSzorzasok)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(tfMuvelet, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -116,8 +128,11 @@ public class Felulet extends javax.swing.JFrame {
                                     .addComponent(tfEredmeny, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btKesz, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(20, Short.MAX_VALUE))
+                                .addComponent(btKesz, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(tfMegoldasKiir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(20, 20, 20))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lbKerdesek)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -145,7 +160,10 @@ public class Felulet extends javax.swing.JFrame {
                     .addComponent(btSzorzasok))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btKesz, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btKesz, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(tfMegoldasKiir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -190,18 +208,23 @@ public class Felulet extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btOsztasokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOsztasokActionPerformed
-        lista.add("");
+        //lista.add("");
+        Osztas();
     }//GEN-LAST:event_btOsztasokActionPerformed
 
     private void btKeszActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btKeszActionPerformed
         
         if (tfEredmeny.getText().equals("1")) {
-            System.out.println("Jó a megoldás");
+            tfMegoldasKiir.setText("Jó a megoldás");
         }else{
-            System.out.println("Rossz a megoldás");
+            tfMegoldasKiir.setText("Rossz a megoldás");
         }
         
     }//GEN-LAST:event_btKeszActionPerformed
+
+    private void tfMegoldasKiirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfMegoldasKiirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfMegoldasKiirActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -231,6 +254,7 @@ public class Felulet extends javax.swing.JFrame {
     private javax.swing.JTextField tfEredmeny;
     private javax.swing.JTextField tfHibak;
     private javax.swing.JTextField tfKerdesek;
+    private javax.swing.JTextField tfMegoldasKiir;
     private javax.swing.JTextField tfMuvelet;
     private javax.swing.JTextField tfProbalkozasok;
     // End of variables declaration//GEN-END:variables
